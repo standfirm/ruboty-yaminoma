@@ -1,7 +1,3 @@
-require "ruboty/yaminoma/version"
+# frozen_string_literal: true
 
-module Ruboty
-  module Yaminoma
-    # Your code goes here...
-  end
-end
+require 'ruboty/yaminoma/version'
