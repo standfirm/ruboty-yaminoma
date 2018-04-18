@@ -5,7 +5,7 @@
 module Ruboty
   module Handlers
     class Yaminoma < Base
-      on /あがります/, name: 'yaminoma', description: 'やみのまリアクションをつける'
+      on /あがります|agarimasu/i, name: 'yaminoma', description: 'やみのまリアクションをつける'
 
       def yaminoma(message)
         message.reply('+:yaminoma:')
