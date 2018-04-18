@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# frozen_string_litral: true
-
 module Ruboty
   module Handlers
     class Yaminoma < Base
