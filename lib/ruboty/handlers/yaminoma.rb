@@ -6,7 +6,7 @@ module Ruboty
       on /あがります/i, name: 'yaminoma', description: 'やみのまリアクションをつける', all: true
 
       def yaminoma(message)
-        message.reply('+:yaminoma:')
+        message.add_reaction('yaminoma')
       end
     end
   end
