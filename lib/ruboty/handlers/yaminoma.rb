@@ -15,7 +15,7 @@ module Ruboty
         message.add_reaction('sun_with_face')
       end
 
-      on /おひる/i, name: 'ohiru', description: 'rice_ballリアクションをつける', all: true
+      on /おひる|ごはん/i, name: 'ohiru', description: 'rice_ballリアクションをつける', all: true
 
       def ohiru(message)
         message.add_reaction('rice_ball')
