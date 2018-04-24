@@ -46,6 +46,20 @@ module Ruboty
       def modori(message)
         message.add_reaction('back')
       end
+
+      on(
+        /コンビニ|こんびに/,
+        name: 'convenience',
+        description: 'famimaリアクションをつける',
+        all: true
+      )
+
+      def convenience(message)
+        message.add_reaction('convenience_famima')
+        message.add_reaction('convenience_poplar')
+        message.add_reaction('convenience_seveneleven')
+        message.add_reaction('convenience_store_k')
+      end
     end
   end
 end
