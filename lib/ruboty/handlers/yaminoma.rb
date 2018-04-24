@@ -4,7 +4,7 @@ module Ruboty
   module Handlers
     class Yaminoma < Base
       on(
-        /(あ|上)がります|(かえ|帰)ります|お(つか|疲)れ(さま|様)です|(帰|かえ)る|(お|終)わり/i,
+        /(あ|上)がります|(かえ|帰)(ります|る)|お(つか|疲)れ(さま|様)で(す|した)|(お|終)わり/i,
         name: 'yaminoma',
         description: 'やみのまリアクションをつける',
         all: true
