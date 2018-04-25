@@ -59,6 +59,8 @@ module Ruboty
         message.add_reaction('convenience_poplar')
         message.add_reaction('convenience_seveneleven')
         message.add_reaction('convenience_store_k')
+        message.add_reaction('convenience_timely')
+        message.add_reaction('convenience_seicomart')
       end
     end
   end
