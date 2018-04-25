@@ -4,7 +4,7 @@ module Ruboty
   module Handlers
     class Yaminoma < Base
       on(
-        /(あ|上)が(り|る|って)|(かえ|帰)(り|る)|お(つか|疲)れ|(お|終)わり|bye/i,
+        /.*((あ|上)が(り|る|って)|(かえ|帰)(り|る)|お(つか|疲)れ|(お|終)わり|bye).*/i,
         name: 'yaminoma',
         description: 'やみのまリアクションをつける',
         all: true
@@ -15,7 +15,7 @@ module Ruboty
       end
 
       on(
-        /おは\w*|ohayo|morning/i,
+        /.*(おは|ohayo|morning).*/i,
         name: 'ohayo',
         description: 'sun_with_faceリアクションをつける',
         all: true
@@ -26,7 +26,7 @@ module Ruboty
       end
 
       on(
-        /(ひる|昼)|ご(はん|飯)|ランチ|lunch/i,
+        /.*(ひる|昼|ご(はん|飯)|ランチ|lunch).*/i,
         name: 'ohiru',
         description: 'rice_ballリアクションをつける',
         all: true
@@ -37,7 +37,7 @@ module Ruboty
       end
 
       on(
-        /(もど|戻)り|再開|back/i,
+        /.*((もど|戻)り|再開|back).*/i,
         name: 'modori',
         description: 'backリアクションをつける',
         all: true
@@ -48,7 +48,7 @@ module Ruboty
       end
 
       on(
-        /コンビニ|こんびに/,
+        /.*(コンビニ|こんびに).*/,
         name: 'convenience',
         description: 'famimaリアクションをつける',
         all: true
