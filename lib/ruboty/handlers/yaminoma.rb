@@ -11,7 +11,9 @@ module Ruboty
       )
 
       def yaminoma(message)
-        message.add_reaction('yaminoma')
+        if filterd_channel(message)
+          message.add_reaction('yaminoma')
+        end
       end
 
       on(
@@ -22,7 +24,9 @@ module Ruboty
       )
 
       def ohayo(message)
-        message.add_reaction('sun_with_face')
+        if filterd_channel(message)
+          message.add_reaction('sun_with_face')
+        end
       end
 
       on(
@@ -33,7 +37,9 @@ module Ruboty
       )
 
       def ohiru(message)
-        message.add_reaction('rice_ball')
+        if filterd_channel(message)
+          message.add_reaction('rice_ball')
+        end
       end
 
       on(
@@ -44,7 +50,9 @@ module Ruboty
       )
 
       def modori(message)
-        message.add_reaction('back')
+        if filterd_channel(message)
+          message.add_reaction('back')
+        end
       end
 
       on(
@@ -55,12 +63,32 @@ module Ruboty
       )
 
       def convenience(message)
-        message.add_reaction('convenience_famima')
-        message.add_reaction('convenience_poplar')
-        message.add_reaction('convenience_seveneleven')
-        message.add_reaction('convenience_store_k')
-        message.add_reaction('convenience_timely')
-        message.add_reaction('convenience_seicomart')
+        if filterd_channel(message)
+          message.add_reaction('convenience_famima')
+          message.add_reaction('convenience_poplar')
+          message.add_reaction('convenience_seveneleven')
+          message.add_reaction('convenience_store_k')
+          message.add_reaction('convenience_timely')
+          message.add_reaction('convenience_seicomart')
+        end
+      end
+
+      private
+
+      def filterd_channel(message)
+        room(message.from) =~ Regexp.new(ENV['YAMINOMA_CHANNEL_FILTER'])
+      end
+
+      def room(from)
+        channels.find { |channel| channel['id'] == from }['name']
+      end
+
+      def channels
+        @channels ||= JSON.parse(open(api_channels_list).read)['channels']
+      end
+
+      def api_channels_list
+        "https://slack.com/api/channels.list?token=#{ENV['RUBOTY_YAMINOMA_SLACK_TOKEN']}"
       end
     end
   end
