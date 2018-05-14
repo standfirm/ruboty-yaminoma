@@ -17,45 +17,6 @@ module Ruboty
       end
 
       on(
-        /.*(おは|ohayo|morning).*/i,
-        name: 'ohayo',
-        description: 'sun_with_faceリアクションをつける',
-        all: true
-      )
-
-      def ohayo(message)
-        if filterd_channel(message) && !ignored_user?(message)
-          message.add_reaction('sun_with_face')
-        end
-      end
-
-      on(
-        /.*(ひる|昼|ご(はん|飯)|ランチ|lunch).*/i,
-        name: 'ohiru',
-        description: 'rice_ballリアクションをつける',
-        all: true
-      )
-
-      def ohiru(message)
-        if filterd_channel(message) && !ignored_user?(message)
-          message.add_reaction('rice_ball')
-        end
-      end
-
-      on(
-        /.*((もど|戻)り|再開|back).*/i,
-        name: 'modori',
-        description: 'backリアクションをつける',
-        all: true
-      )
-
-      def modori(message)
-        if filterd_channel(message) && !ignored_user?(message)
-          message.add_reaction('back')
-        end
-      end
-
-      on(
         /.*(コンビニ|こんびに).*/,
         name: 'convenience',
         description: 'famimaリアクションをつける',
