@@ -11,7 +11,7 @@ module Ruboty
       )
 
       def yaminoma(message)
-        if filterd_channel(message)
+        if filterd_channel(message) && !ignored_user?(message)
           message.add_reaction('yaminoma')
         end
       end
@@ -24,7 +24,7 @@ module Ruboty
       )
 
       def ohayo(message)
-        if filterd_channel(message)
+        if filterd_channel(message) && !ignored_user?(message)
           message.add_reaction('sun_with_face')
         end
       end
@@ -37,7 +37,7 @@ module Ruboty
       )
 
       def ohiru(message)
-        if filterd_channel(message)
+        if filterd_channel(message) && !ignored_user?(message)
           message.add_reaction('rice_ball')
         end
       end
@@ -50,7 +50,7 @@ module Ruboty
       )
 
       def modori(message)
-        if filterd_channel(message)
+        if filterd_channel(message) && !ignored_user?(message)
           message.add_reaction('back')
         end
       end
@@ -63,7 +63,7 @@ module Ruboty
       )
 
       def convenience(message)
-        if filterd_channel(message)
+        if filterd_channel(message) && !ignored_user?(message)
           message.add_reaction('convenience_famima')
           message.add_reaction('convenience_poplar')
           message.add_reaction('convenience_seveneleven')
@@ -89,6 +89,11 @@ module Ruboty
 
       def api_channels_list
         "https://slack.com/api/channels.list?token=#{ENV['RUBOTY_YAMINOMA_SLACK_TOKEN']}"
+      end
+
+      def ignored_user?(message)
+        false if ENV['YAMINOMA_IGNORED_USER'].empty?
+        message.from_name.match?(Regexp.new(ENV['YAMINOMA_IGNORED_USER']))
       end
     end
   end
