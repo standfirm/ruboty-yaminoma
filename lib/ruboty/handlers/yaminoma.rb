@@ -49,7 +49,7 @@ module Ruboty
       end
 
       def api_channels_list
-        "https://slack.com/api/channels.list?token=#{ENV['RUBOTY_YAMINOMA_SLACK_TOKEN']}"
+        "https://slack.com/api/conversations.list?token=#{ENV['RUBOTY_YAMINOMA_SLACK_TOKEN']}"
       end
 
       def ignored_user?(message)
